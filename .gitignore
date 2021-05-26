@@ -1,10 +1,10 @@
 /node_modules/
-/commonjs/
-/esm/
-/standalone/
-/build
+# /commonjs/
+# /esm/
+# /standalone/
+# /build
 /storybook-static
-/types
+# /types
 
 # IDE
 .vscode/

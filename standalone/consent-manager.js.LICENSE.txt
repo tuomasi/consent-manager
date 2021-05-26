@@ -1,0 +1,14 @@
+/*!
+ * Consent Manager v5.2.0
+ * https://github.com/segmentio/consent-manager
+ * Released under the MIT license
+ * Copyright © 2018, Segment.io, Inc
+ */
+
+/*!
+ * JavaScript Cookie v2.2.1
+ * https://github.com/js-cookie/js-cookie
+ *
+ * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
+ * Released under the MIT license
+ */
