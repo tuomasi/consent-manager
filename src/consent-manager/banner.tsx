@@ -7,7 +7,7 @@ interface RootProps {
   textColor: string
 }
 
-const Root = styled.div<RootProps>`
+const Root = styled('div')<RootProps>`
   ${fontStyles};
   position: relative;
   padding: 8px;
