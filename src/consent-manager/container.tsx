@@ -45,6 +45,8 @@ interface ContainerProps {
   preferencesDialogTitle: React.ReactNode
   preferencesDialogContent: React.ReactNode
   cancelDialogTitle: React.ReactNode
+  cancelText: string
+  backText: string
   cancelDialogContent: React.ReactNode
   workspaceAddedNewDestinations?: boolean
   defaultDestinationBehavior?: DefaultDestinationBehavior
@@ -223,6 +225,8 @@ const Container: React.FC<ContainerProps> = props => {
       {isCancelling && (
         <CancelDialog
           innerRef={current => (cancelDialog = { current })}
+          backText={props.backText}
+          cancelText={props.cancelText}
           onBack={handleCancelBack}
           onConfirm={handleCancelConfirm}
           title={props.cancelDialogTitle}

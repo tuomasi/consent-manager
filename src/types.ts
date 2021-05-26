@@ -91,6 +91,8 @@ export interface ConsentManagerProps {
   preferencesDialogContent: React.ReactNode
   onError?: (error: Error | undefined) => void
   cancelDialogTitle?: React.ReactNode
+  cancelText?: string
+  backText?: string
   cancelDialogContent: React.ReactNode
   closeBehavior?: CloseBehavior | CloseBehaviorFunction
   initialPreferences?: CategoryPreferences
