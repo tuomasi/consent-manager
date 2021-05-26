@@ -7100,7 +7100,7 @@ var consentManager
             (t.prototype = null === n ? Object.create(n) : ((r.prototype = n.prototype), new r()))
         }
       })(),
-      Jo = Fo.div(
+      Jo = Fo('div')(
         na ||
           (na = Xo(
             [
@@ -7245,7 +7245,7 @@ var consentManager
             ]
           ))
       ),
-      pa = Fo.section(
+      pa = Fo('section')(
         wa ||
           (wa = ca(
             [
