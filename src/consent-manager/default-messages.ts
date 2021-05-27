@@ -1,19 +1,5 @@
 import React from 'react'
 
-const banner = {
-  header: 'Cookies auf Beispiel',
-  content:
-    'Wir verwenden Cookies für ein komfortableres Nutzererlebnis und zu Analyse- und Marketing-zwecken. Du kannst diese Cookies jederzeit deaktivieren.'
-}
-const preference = {
-  description:
-    'Segment verwendet Daten, die von Cookies und JavaScript-Bibliotheken gesammelt wurden, um Ihr Surf-Erlebnis zu verbessern, den Website-Verkehr zu analysieren, personalisierte Werbung zu liefern und die Gesamtleistung unserer Website zu steigern.',
-  warning:
-    'Durch die Nutzung unserer Website stimmen Sie unserer Richtlinie zur Website-Datenerfassung zu.',
-  explanation:
-    'Die nachstehende Tabelle gibt einen Überblick über die Verwendung dieser Daten nach Kategorien. Um eine Kategorie der Datenerhebung abzulehnen, wählen Sie "Nein" und speichern Sie Ihre Präferenzen.'
-}
-
 export default {
   en: {
     'ui.save': 'Save',
@@ -90,16 +76,26 @@ export default {
     'ui.header.category': 'Kategorie',
     'ui.header.purpose': 'Zweck',
     'ui.header.tools': 'Werkzeuge',
-    'ui.banner.content': React.createElement(React.Fragment, null, [
-      React.createElement('strong', { key: 1 }, banner.header),
-      React.createElement('span', { key: 2 }, banner.content)
-    ]),
+    'ui.banner.content':
+      'Wir verwenden Cookies für ein komfortableres Nutzererlebnis und zu Analyse- und Marketing-zwecken. Du kannst diese Cookies jederzeit deaktivieren.',
     'ui.banner.subContent': 'INFORMATIONEN & EINSTELLUNGEN',
     'ui.preferences.title': 'Website-Datenerhebungs-Präferenzen',
     'ui.preferences.content': React.createElement(React.Fragment, null, [
-      React.createElement('p', { key: 1 }, preference.description),
-      React.createElement('p', { key: 2 }, preference.warning),
-      React.createElement('p', { key: 3 }, preference.explanation)
+      React.createElement(
+        'p',
+        { key: 1 },
+        'Segment verwendet Daten, die von Cookies und JavaScript-Bibliotheken gesammelt wurden, um Ihr Surf-Erlebnis zu verbessern, den Website-Verkehr zu analysieren, personalisierte Werbung zu liefern und die Gesamtleistung unserer Website zu steigern.'
+      ),
+      React.createElement(
+        'p',
+        { key: 2 },
+        'Durch die Nutzung unserer Website stimmen Sie unserer Richtlinie zur Website-Datenerfassung zu.'
+      ),
+      React.createElement(
+        'p',
+        { key: 3 },
+        'Die nachstehende Tabelle gibt einen Überblick über die Verwendung dieser Daten nach Kategorien. Um eine Kategorie der Datenerhebung abzulehnen, wählen Sie "Nein" und speichern Sie Ihre Präferenzen.'
+      )
     ]),
     'ui.cancel.title': 'Sind Sie sicher, dass Sie absagen wollen?',
     'ui.cancel.content':
