@@ -64,7 +64,7 @@ export default class ConsentManager extends PureComponent<ConsentManagerProps, {
         'ui.header.category': string
         'ui.header.purpose': string
         'ui.header.tools': string
-        'ui.banner.content': React.FunctionComponentElement<{}>
+        'ui.banner.content': string
         'ui.banner.subContent': string
         'ui.preferences.title': string
         'ui.preferences.content': React.FunctionComponentElement<{}>
