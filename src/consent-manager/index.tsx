@@ -3,6 +3,7 @@ import ConsentManagerBuilder from '../consent-manager-builder'
 import Container from './container'
 import { ADVERTISING_CATEGORIES, FUNCTIONAL_CATEGORIES } from './categories'
 import { CategoryPreferences, Destination, ConsentManagerProps } from '../types'
+import defaultMessages from './default-messages'
 
 const zeroValuePreferences: CategoryPreferences = {
   marketingAndAnalytics: null,
@@ -23,13 +24,10 @@ export default class ConsentManager extends PureComponent<ConsentManagerProps, {
     cookieExpires: undefined,
     customCategories: undefined,
     bannerTextColor: '#fff',
-    bannerSubContent: 'You can change your preferences at any time.',
     bannerBackgroundColor: '#1f4160',
-    preferencesDialogTitle: 'Website Data Collection Preferences',
-    cancelDialogTitle: 'Are you sure you want to cancel?',
-    defaultDestinationBehavior: 'disable',
-    cancelText: 'Cancel',
-    backText: 'Go back'
+    locale: 'de',
+    translations: defaultMessages,
+    defaultDestinationBehavior: 'disable'
   }
 
   render() {
@@ -48,14 +46,34 @@ export default class ConsentManager extends PureComponent<ConsentManagerProps, {
       preferencesDialogTitle,
       preferencesDialogContent,
       cancelDialogTitle,
-      cancelText,
-      backText,
       cancelDialogContent,
       customCategories,
       defaultDestinationBehavior,
       cdnHost,
-      onError
+      onError,
+      locale,
+      translations
     } = this.props
+
+    const translate = (key: string) => {
+      let transDictionary
+      let lng
+      if (translations) {
+        transDictionary = {
+          ...ConsentManager.defaultProps.translations,
+          ...translations
+        }
+      } else {
+        transDictionary = ConsentManager.defaultProps.translations
+      }
+
+      if (locale && transDictionary[locale]) {
+        lng = locale
+      } else {
+        lng = ConsentManager.defaultProps.locale
+      }
+      return transDictionary[lng][key]
+    }
 
     return (
       <ConsentManagerBuilder
@@ -98,21 +116,22 @@ export default class ConsentManager extends PureComponent<ConsentManagerProps, {
               implyConsentOnInteraction={
                 implyConsentOnInteraction ?? ConsentManager.defaultProps.implyConsentOnInteraction
               }
-              bannerContent={bannerContent}
-              bannerSubContent={bannerSubContent}
+              bannerContent={bannerContent || translate('ui.banner.content')}
+              bannerSubContent={bannerSubContent || translate('ui.banner.subContent')}
               bannerTextColor={bannerTextColor || ConsentManager.defaultProps.bannerTextColor}
               bannerBackgroundColor={
                 bannerBackgroundColor || ConsentManager.defaultProps.bannerBackgroundColor
               }
-              preferencesDialogTitle={preferencesDialogTitle}
-              preferencesDialogContent={preferencesDialogContent}
-              cancelDialogTitle={cancelDialogTitle}
-              cancelText={cancelText || ConsentManager.defaultProps.cancelText}
-              backText={backText || ConsentManager.defaultProps.backText}
-              cancelDialogContent={cancelDialogContent}
+              preferencesDialogTitle={preferencesDialogTitle || translate('ui.preferences.title')}
+              preferencesDialogContent={
+                preferencesDialogContent || translate('ui.preferences.content')
+              }
+              cancelDialogTitle={cancelDialogTitle || translate('ui.cancel.title')}
+              cancelDialogContent={cancelDialogContent || translate('ui.cancel.content')}
               havePreferencesChanged={havePreferencesChanged}
               defaultDestinationBehavior={defaultDestinationBehavior}
               workspaceAddedNewDestinations={workspaceAddedNewDestinations}
+              translate={translate}
             />
           )
         }}

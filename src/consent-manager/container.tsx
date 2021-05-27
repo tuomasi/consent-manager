@@ -45,8 +45,7 @@ interface ContainerProps {
   preferencesDialogTitle: React.ReactNode
   preferencesDialogContent: React.ReactNode
   cancelDialogTitle: React.ReactNode
-  cancelText: string
-  backText: string
+  translate: (key: string) => string
   cancelDialogContent: React.ReactNode
   workspaceAddedNewDestinations?: boolean
   defaultDestinationBehavior?: DefaultDestinationBehavior
@@ -219,18 +218,18 @@ const Container: React.FC<ContainerProps> = props => {
           functional={props.preferences.functional}
           title={props.preferencesDialogTitle}
           content={props.preferencesDialogContent}
+          translate={props.translate}
         />
       )}
 
       {isCancelling && (
         <CancelDialog
           innerRef={current => (cancelDialog = { current })}
-          backText={props.backText}
-          cancelText={props.cancelText}
           onBack={handleCancelBack}
           onConfirm={handleCancelConfirm}
           title={props.cancelDialogTitle}
           content={props.cancelDialogContent}
+          translate={props.translate}
         />
       )}
     </div>

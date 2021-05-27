@@ -83,11 +83,13 @@ export default class Banner extends PureComponent<Props> {
       <Root innerRef={innerRef} backgroundColor={backgroundColor} textColor={textColor}>
         <Content>
           <P>{content}</P>
-          <P>
-            <button type="button" onClick={onChangePreferences}>
-              {subContent}
-            </button>
-          </P>
+          {subContent && (
+            <P>
+              <button type="button" onClick={onChangePreferences}>
+                {subContent}
+              </button>
+            </P>
+          )}
         </Content>
 
         <CloseButton type="button" title="Close" aria-label="Close" onClick={onClose}>

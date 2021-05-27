@@ -4,26 +4,25 @@ import { DefaultButton, RedButton } from './buttons'
 
 interface Props {
   innerRef: (node: HTMLElement) => void
-  backText: string
-  cancelText: string
   onBack: () => void
   onConfirm: () => void
   title: React.ReactNode
   content: React.ReactNode
+  translate: (key: string) => string
 }
 
 export default class CancelDialog extends PureComponent<Props> {
   static displayName = 'CancelDialog'
 
   render() {
-    const { innerRef, backText, cancelText, onBack, title, content } = this.props
+    const { innerRef, onBack, title, content, translate } = this.props
 
     const buttons = (
       <div>
         <DefaultButton type="button" onClick={onBack}>
-          {backText || 'Go back'}
+          {translate('ui.go_back')}
         </DefaultButton>
-        <RedButton type="submit">{cancelText || 'Cancel'}</RedButton>
+        <RedButton type="submit">{translate('ui.yes_cancel')}</RedButton>
       </div>
     )
 
