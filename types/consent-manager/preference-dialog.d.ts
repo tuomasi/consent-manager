@@ -16,6 +16,7 @@ interface PreferenceDialogProps {
   preferences: CategoryPreferences
   title: React.ReactNode
   content: React.ReactNode
+  translate: (key: string) => string
 }
 export default class PreferenceDialog extends PureComponent<PreferenceDialogProps, {}> {
   static displayName: string

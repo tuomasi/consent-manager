@@ -1,12 +1,11 @@
 import React, { PureComponent } from 'react'
 interface Props {
   innerRef: (node: HTMLElement) => void
-  backText: string
-  cancelText: string
   onBack: () => void
   onConfirm: () => void
   title: React.ReactNode
   content: React.ReactNode
+  translate: (key: string) => string
 }
 export default class CancelDialog extends PureComponent<Props> {
   static displayName: string

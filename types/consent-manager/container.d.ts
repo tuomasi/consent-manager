@@ -33,8 +33,7 @@ interface ContainerProps {
   preferencesDialogTitle: React.ReactNode
   preferencesDialogContent: React.ReactNode
   cancelDialogTitle: React.ReactNode
-  cancelText: string
-  backText: string
+  translate: (key: string) => string
   cancelDialogContent: React.ReactNode
   workspaceAddedNewDestinations?: boolean
   defaultDestinationBehavior?: DefaultDestinationBehavior

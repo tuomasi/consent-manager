@@ -43,6 +43,7 @@ interface StandaloneConsentManagerParams {
   inEU: () => boolean
   preferences: PreferencesManager
   inRegions: (regions: string[]) => () => boolean
+  locales?: object
 }
 export interface Preferences {
   destinationPreferences?: CategoryPreferences
@@ -68,6 +69,7 @@ export interface CustomCategories {
 interface CustomCategory {
   integrations: string[]
   purpose: string
+  example?: string
 }
 export interface ConsentManagerProps {
   writeKey: string
@@ -77,21 +79,21 @@ export interface ConsentManagerProps {
   cookieDomain?: string
   cookieName?: string
   cookieExpires?: number
-  bannerContent: React.ReactNode
-  bannerSubContent?: string
+  bannerContent: React.ReactNode | string
+  bannerSubContent?: React.ReactNode | string
   bannerTextColor?: string
   bannerBackgroundColor?: string
-  preferencesDialogTitle?: React.ReactNode
-  preferencesDialogContent: React.ReactNode
+  preferencesDialogTitle?: React.ReactNode | string
+  preferencesDialogContent?: React.ReactNode | string
   onError?: (error: Error | undefined) => void
-  cancelDialogTitle?: React.ReactNode
-  cancelText?: string
-  backText?: string
-  cancelDialogContent: React.ReactNode
+  cancelDialogTitle?: React.ReactNode | string
+  cancelDialogContent: React.ReactNode | string
   closeBehavior?: CloseBehavior | CloseBehaviorFunction
   initialPreferences?: CategoryPreferences
   customCategories?: CustomCategories
   defaultDestinationBehavior?: DefaultDestinationBehavior
   cdnHost?: string
+  locale?: string
+  translations?: object
 }
 export {}
